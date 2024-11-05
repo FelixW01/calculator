@@ -1,10 +1,12 @@
-// let divEl = document.getElementById('main-div');
+const userInput = document.querySelectorAll('[data-selection]');
 
-// for (let i = 0; i < 10; i++) {
-//     let newButton = document.createElement('button')
-//     newButton.textContent = i
-//     newButton.addEventListener('click', () => {
-//                 alert(`Button ${i} clicked!`);
-//             });
-//             divEl.appendChild(newButton);
-// }
+userInput.forEach(userInput => {
+    userInput.addEventListener('click', e => {
+       let clickedBtn =  userInput.dataset.selection
+        calculateInput(clickedBtn)
+    })
+})
+
+function calculateInput(clickedBtn) {
+
+}

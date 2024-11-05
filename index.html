@@ -8,9 +8,32 @@
   </head>
   <body>
     <main class="main-container">
-      <div id="main-div">
-        <button>(</button>
-        <button>)</button>
+      <div class="calculator-div">
+        <div class="display-div">
+          <p id="display-p">123</p>
+        </div>
+        <div class="main-div">
+          <button data-selection="(">(</button>
+          <button data-selection=")">)</button>
+          <button data-selection="%">%</button>
+          <button id="ac-btn" data-selection="AC">AC</button>
+          <button data-selection="7">7</button>
+          <button data-selection="8">8</button>
+          <button data-selection="9">9</button>
+          <button data-selection="/">/</button>
+          <button data-selection="4">4</button>
+          <button data-selection="5">5</button>
+          <button data-selection="6">6</button>
+          <button data-selection="x">x</button>
+          <button data-selection="1">1</button>
+          <button data-selection="2">2</button>
+          <button data-selection="3">3</button>
+          <button data-selection="-">-</button>
+          <button data-selection="0">0</button>
+          <button data-selection=".">.</button>
+          <button data-selection="=">=</button>
+          <button data-selection="+">+</button>
+        </div>
       </div>
     </main>
     <script src="script.js"></script>
