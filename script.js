@@ -39,6 +39,11 @@ function calculateInput(clickedBtn) {
         if(num1 === '') {
             num1 = display
         }
+        if (operator !== '') {
+            num2 = display.split(operator)[1].trim();
+            calculateResult();
+            display = num1;
+        }
         // If clicked button is included in operators array, assign operator
         operator = clickedBtn
         // Adds operator into display
