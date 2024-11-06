@@ -39,6 +39,7 @@ function calculateInput(clickedBtn) {
         if(num1 === '') {
             num1 = display
         }
+        // Complete the calculation when the user have 2 numbers and an operator on display and proceeds to click another operator
         if (operator !== '') {
             num2 = display.split(operator)[1].trim();
             calculateResult();
@@ -83,7 +84,7 @@ function calculateResult() {
         result = parsedNum1 * parsedNum2;
         break;
         case '/':
-        // Division by 0
+        // Division by 0 returns Error
         if (parsedNum2 === 0) {
         result = 'Error'
         } else {
