@@ -4,6 +4,8 @@ let display = '0';
 let num1 = ''
 let num2 = ''
 let operator = '';
+let operators = ['%', '+', '-', '*', '/'];
+let keys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '%', '+', '-', '*', '/', '=']
 
 // Initial display as 0
 displayEl.textContent = display;
@@ -13,12 +15,22 @@ userInput.forEach(userInput => {
     userInput.addEventListener('click', e => {
        let clickedBtn =  userInput.dataset.selection
         calculateInput(clickedBtn)
-    })
+    }) 
+})
+
+// Event listener on dom to listen on user keyboard inputs
+document.addEventListener('keydown', e => {
+    if (keys.includes(e.key)) {
+        let clickedBtn = e.key
+        e.stopPropagation()
+        console.log(typeof e.key)
+        calculateInput(clickedBtn)
+    }
 })
 
 function calculateInput(clickedBtn) {
     
-    let operators = ['%', "+", "-", "*", "/"];
+    
     
     // If the user clicks AC, reset the variables
     if (clickedBtn === 'AC') {
