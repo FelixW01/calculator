@@ -18,33 +18,39 @@ userInput.forEach(userInput => {
     }) 
 })
 
-// Event listener on dom to listen on user keyboard inputs
+// Event listener on dom to listen on user key input
 document.addEventListener('keydown', e => {
     if (keys.includes(e.key)) {
         let clickedBtn = e.key
         e.stopPropagation()
-        console.log(typeof e.key)
+        console.log(e)
         calculateInput(clickedBtn)
     }
 })
 
 function calculateInput(clickedBtn) {
-    
-    
-    
     // If the user clicks AC, reset the variables
     if (clickedBtn === 'AC') {
         display = '0';
         num1 = '';
         num2 = '';
         operator = '';
-    } 
-    
+    }
     // If display is 0, clickedBtn is not an operator or a =, change display to clickedBtn
     else if (display === '0' && !operators.includes(clickedBtn) && clickedBtn !== '=') {
         display = clickedBtn;
     } 
     
+    // This conditional stops the user from clicking 2 operators in a row, stopping them from breaking the app
+    else if (operators.includes(clickedBtn) && operator !== '' && !display.split(operator)[1].trim()) {
+        return;
+    }
+
+    // Stops the user from clicking = after only having one number and one operator
+    else if (clickedBtn === '=' && (num1 === '' || operator === '' || !display.split(operator)[1].trim())) {
+        return;
+    }
+
     // If clickedBtn is an operator, assign operator to clickedBtn and display.
     else if (operators.includes(clickedBtn)) {
         // Make sure num1 is not empty when operator is hit 
